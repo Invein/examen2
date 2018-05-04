@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const carsController = require('../controllers/carsController');
 
-router.get('/:page?', carsController.index);
+router.get('/', carsController.index);
 
 router.get('/:id', carsController.getOne);
 
