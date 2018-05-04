@@ -25,7 +25,22 @@ function index(request, response, next) {
 
 function getOne(request, response, next) {
   const id = request.params.id;
-  Car.findById();
+
+  Car.findById(id, (err, obj) => {
+    if (err) {
+      response.json({
+        error: true,
+        message: 'carro no  existe',
+        objs: {}
+      });
+    } else {
+      response.json({
+        error: false,
+        message: 'carro con id: ' + id,
+        objs: obj
+      });
+    }
+  });
 }
 
 function create(request, response, next) {
